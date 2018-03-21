@@ -1,0 +1,29 @@
+service: protecting-functions
+
+provider:
+  name: google
+  runtime: nodejs
+  project: ${file(./config.yml):projectId}
+  # the path to the credentials file needs to be absolute
+  credentials: ${file(./config.yml):credentials}
+
+plugins:
+  - serverless-google-cloudfunctions
+
+# needs more granular excluding in production as only the serverless provider npm
+# package should be excluded (and not the whole node_modules directory)
+package:
+  exclude:
+    - "**"
+  include:
+    - package.json
+    - index.js
+    - serviceAccount.json
+
+functions:
+  protected:
+    handler: protected
+    memorySize: 1024
+    timeout: 10s
+    events:
+      - http: protected

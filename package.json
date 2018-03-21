@@ -1,0 +1,68 @@
+{
+  "name": "Protecting-google-cloud-functions",
+  "version": "1.0.0",
+  "description": "Validating each request against the attached authorization token",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lakshmantgld/protecting-google-cloud-functions.git"
+  },  
+  "scripts": {
+    "emulator": "functions start",
+    "local": "functions deploy protected --trigger-http",
+    "logs": "functions logs read -l=100",
+    "clear": "functions logs clear",
+    "stop": "functions stop",
+    "deploy": "sls deploy -vvvv",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "emoji-cz",
+    "emoji-cz": {
+      "types": {
+        "Feat": {
+          "emoji": "✨",
+          "description": "A new feature"
+        },
+        "Fix": {
+          "emoji": "🐛",
+          "description": "A bug fix"
+        },
+        "Docs": {
+          "emoji": "📚",
+          "description": "Documentation only changes"
+        },
+        "Style": {
+          "emoji": "🎨",
+          "description": "Changes that do not affect the meaning of the code"
+        },
+        "Refactor": {
+          "emoji": "🔨",
+          "description": "A code change that neither fixes a bug nor adds a feature"
+        },
+        "Perf": {
+          "emoji": "🚀",
+          "description": "A code change that improves performance"
+        },
+        "Test": {
+          "emoji": "🚨",
+          "description": "Adding missing tests or correcting existing tests"
+        },
+        "Chore": {	
+          "emoji": "🔩",
+          "description": "Other changes that don't modify src or test files"	
+        }
+     },
+     "format": "[emoji] [name]: [subject]"
+    }
+   }
+  },  
+  "author": "Lakshman Diwaakar (https://lakshmantgld.github.io)",
+  "license": "MIT",
+  "dependencies": {
+    "firebase-admin": "^5.10.0"
+  },
+  "devDependencies": {
+    "serverless-google-cloudfunctions": "^1.1.1"
+  }
+}
